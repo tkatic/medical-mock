@@ -221,6 +221,7 @@
                     </div>
                 </div>
             </section>
+            <p id="thankYouMessage" style="display: none;"></p>
         </main>
 
         <!--========== FOOTER ==========-->
@@ -282,5 +283,55 @@
 
         <!--========== MAIN JS ==========-->
         <script src="assets/js/main.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script>
+            //button submit
+// Initialize EmailJS with your public key
+(function(){
+  emailjs.init({ publicKey: "aaUikvzeH71VgOREm" });
+})();
+
+// Attach the submit event to the contact form's submit button
+document.addEventListener('DOMContentLoaded', function() {
+  const submitBtn = document.getElementById('submitBtn');
+
+  submitBtn.addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent default anchor behavior
+
+    const form = document.getElementById('contactForm');
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // Collect the form data using FormData API
+    const formData = new FormData(form);
+    
+    // Build template parameters; keys should match your EmailJS template placeholders
+    const templateParams = {
+      fullName: formData.get('fullName'),
+      email: formData.get('emailAddress'),
+      phone: formData.get('phone'),
+      message: formData.get('message')
+    };
+
+    console.log("Template Params:", templateParams);
+
+    // Send the email using EmailJS with the specified service and template IDs
+    emailjs.send('service_hwh44t5', 'template_npxst2n', templateParams)
+      .then(function(response) {
+        const thankYouEl = document.getElementById('thankYouMessage');
+        thankYouEl.innerHTML = "Thanks, we will get back to you soon.";
+        thankYouEl.style.display = "block";
+        form.reset();
+      }, function(error) {
+        const thankYouEl = document.getElementById('thankYouMessage');
+        thankYouEl.innerHTML = "Sorry, something went wrong. Please try again later.";
+        thankYouEl.style.display = "block";
+        console.error('FAILED...', error);
+      });
+  });
+});
+        </script>
     </body>
 </html>

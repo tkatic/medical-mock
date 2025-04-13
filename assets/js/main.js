@@ -156,48 +156,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
-  
-
-//button submit
-
-document.addEventListener('DOMContentLoaded', function() {
-  const submitBtn = document.getElementById('submitBtn');
-  
-  submitBtn.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent default anchor behavior (hash jump)
-    
-    // Collect input values from your form
-    const fullName = document.getElementById('fullName').value;
-    const emailAddress = document.getElementById('emailAddress').value;
-    const phone = document.getElementById('phone').value;
-    const message = document.getElementById('message').value;
-    
-    // Construct the email body with URL encoding for line breaks (%0A)
-    const emailBody = `Full Name: ${fullName}%0AEmail Address: ${emailAddress}%0APhone: ${phone}%0AAdditional Information: ${message}`;
-    
-    // Create the mailto URL
-    const mailtoLink = `mailto:info@houstonclintrials.com?subject=Registration%20Form%20Submission&body=${emailBody}`;
-    
-    // Redirect to the mailto link (this opens the user's email client)
-    window.location.href = mailtoLink;
-
-    // Create and style the thank-you message
-    const thankYouMessage = document.createElement('p');
-    thankYouMessage.textContent = "Thanks, we will get back to you soon.";
-    thankYouMessage.style.marginTop = "1rem";
-    thankYouMessage.style.fontWeight = "600";
-    thankYouMessage.style.color = "var(--first-color)";
-    
-    // Append the message below the submit button, but first remove any existing message
-    const existingMessage = document.getElementById('thankYouMessage');
-    if (existingMessage) {
-      existingMessage.remove();
-    }
-    thankYouMessage.id = 'thankYouMessage';
-    // Append the message after the submit button within the form
-    submitBtn.parentNode.insertBefore(thankYouMessage, submitBtn.nextSibling);
-  });
-});
 
 //phone logic
 document.addEventListener('DOMContentLoaded', function() {
