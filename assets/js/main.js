@@ -259,6 +259,7 @@ if (phoneInputRegistration) {
         const thankYouEl = document.getElementById('thankYouMessageRegistration');
         thankYouEl.textContent = "Thanks, we will get back to you soon.";
         thankYouEl.style.display = "block";
+        form.reset();
         setTimeout(() => {
           thankYouEl.style.display = "none";
           document.getElementById('registrationModal').style.display = "none";

@@ -647,11 +647,17 @@ img{
   color: var(--text-color);
 }
 
-#thankYouMessage, #thankYouMessageRegistration {
+#thankYouMessage {
   margin-top: 1rem;
   font-weight: 600;
   color: #2596be;
   text-align: center;
+}
+
+#thankYouMessageRegistration {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #2596be;
 }
 
 @media screen and (min-width: 960px){
