@@ -110,11 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
       `
     },
     {
-      image: "assets/img/plate4.jpg", // Johnny M. Timmons
-      name: "Johnny M. Timmons, LVN",
+      image: "assets/img/plate4.jpg", // Stephanie Guevara
+      name: "Stephanie Guevara",
       content: `
-        <p>Johnny Timmons is a Clinical Research Study Coordinator and Rater for Houston Clinical Trials in Houston. He became a Licensed Vocational Nurse at South Plains College in Lubbock, Texas, in 1984. Mr. Timmons has numerous certifications, which include: the American Heart Association—Cardio Pulmonary Resuscitation, Dangerous Goods Training and Certification, the International Air Transport Association (IATA) Certification, and the National Institute of Health (NIH) Certification.</p>
-        <p>Since 2003, Mr. Timmons has served the medical community as a Clinical Research Coordinator and Rater on more than 100 clinical trials pertaining to behavioral health and mental disorders. In 2012, Mr. Timmons joined the Houston Clinical Trial team, where he continues to pursue innovative treatments.</p>
+        <p>Stephanie Guevara is a Clinical Research Coordinator for Houston Clinical Trials. She received a Bachelor’s of Psychology from University of Texas at Tyler. Ms. Guevara has been a research coordinator for over 10 years. Clinical trials that Stephanie has participated in include, Alzheimer’s, Depression, Anxiety, ADHD, Autism, Bipolar, Diabetes, and Asthma.</p>
+        <p>Age groups range from pediatric, adolescent, adult and geriatric. Coordinating tasks include source document creation, regulatory management, site correspondence, recruitment, and overseeing volunteer participation throughout study.</p>
       `
     }
   ];
