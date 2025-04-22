@@ -52,7 +52,7 @@
                     <div class="home__data">
                         <h1 class="home__title">Advancing Medicine</h1>
                         <h2 class="home__subtitle">Improving Lives</h2>
-                        <a href="registration.html" class="button">Register</a>
+                        <a href="#" class="button" id="openRegistrationModal">Register</a>
                     </div>
     
                 </div>
@@ -169,7 +169,7 @@
                     </div>
 
                     <div class="contact__button">
-                        <a href="registration.html" class="button">Register Here</a>
+                        <a href="#" class="button" id="openRegistrationModal">Register Here</a>
                     </div>
                 </div>
             </section>
@@ -316,5 +316,166 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
         </script>
+
+        <!--========== REGISTRATION MODAL ==========-->
+        <div id="registrationModal" class="modal">
+            <div class="modal-content">
+            <span class="close" id="closeRegistrationModal">&times;</span>
+            <div class="modal-header">
+                <h2>Participant Registration</h2>
+            </div>
+            <div class="modal-body">
+                <form id="registrationForm">
+                <div class="form-group">
+                    <label>Are you currently enrolled in a clinical trial? *</label>
+                    <div class="radio-row">
+                        <label><input type="radio" name="currentlyEnrolled" value="Yes" required> Yes</label>
+                        <label><input type="radio" name="currentlyEnrolled" value="No"> No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Have you ever participated in a clinical trial? *</label>
+                    <div class="radio-row">
+                        <label><input type="radio" name="everParticipated" value="Yes" required> Yes</label>
+                        <label><input type="radio" name="everParticipated" value="No"> No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailAddress">Email Address *</label>
+                    <input type="email" id="emailAddress" name="emailAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address *</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city">
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <select id="state" name="state">
+                        <option value="">-- Select State --</option>
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AZ">AZ</option>
+                        <option value="AR">AR</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DE">DE</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="IA">IA</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="ME">ME</option>
+                        <option value="MD">MD</option>
+                        <option value="MA">MA</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MS">MS</option>
+                        <option value="MO">MO</option>
+                        <option value="MT">MT</option>
+                        <option value="NE">NE</option>
+                        <option value="NV">NV</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NY">NY</option>
+                        <option value="NC">NC</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WV">WV</option>
+                        <option value="WI">WI</option>
+                        <option value="WY">WY</option>
+                        <option value="DC">DC</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" id="zipCode" name="zipCode">
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex *</label>
+                    <select id="sex" name="sex" required>
+                    <option value="">-- Please Select --</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other / Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth *</label>
+                    <input type="date" id="dob" name="dob" required maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label>What is the best time of day to call? *</label>
+                    <div class="radio-row">
+                        <label><input type="radio" name="bestTime" value="Morning" required> Morning</label>
+                        <label><input type="radio" name="bestTime" value="Afternoon"> Afternoon</label>
+                        <label><input type="radio" name="bestTime" value="Early Evening"> Early Evening</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="howHear">How did you hear about Houston Clinical Trials?</label>
+                    <input type="text" id="howHear" name="howHear">
+                </div>
+                <div class="form-group">
+                    <label for="studies">Which of our studies interest you? *</label>
+                    <select id="studies" name="studies" required>
+                    <option value="">-- Please Select --</option>
+                    <option value="Major Depression in Adults">Major Depression in Adults</option>
+                    <option value="ADHD">ADHD</option>
+                    <option value="Anxiety Disorder">Anxiety Disorder</option>
+                    <option value="Bipolar Disorder">Bipolar Disorder</option>
+                    <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="studyOther">If other, please indicate:</label>
+                    <input type="text" id="studyOther" name="studyOther">
+                </div>
+                <div class="form-group">
+                    <label for="conditions">Do you have any significant medical conditions?</label>
+                    <textarea id="conditions" name="conditions" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="button" id="submitBtnRegistration">Submit</button>
+                </div>
+                <p id="thankYouMessageRegistration" style="display: none;"></p>
+            </form>
+            </div>
+            </div>
+        </div>
     </body>
 </html>

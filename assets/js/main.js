@@ -183,3 +183,90 @@ document.addEventListener('DOMContentLoaded', function() {
     phoneInput.value = formattedNumber;
   });
 });
+
+// ===== Registration Modal Logic + EmailJS Integration =====
+document.addEventListener('DOMContentLoaded', function () {
+  const registrationModal = document.getElementById('registrationModal');
+  const openBtn = document.getElementById('openRegistrationModal');
+  const closeBtn = document.getElementById('closeRegistrationModal');
+
+  openBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    registrationModal.style.display = 'block';
+  });
+
+  closeBtn.addEventListener('click', function () {
+    registrationModal.style.display = 'none';
+  });
+
+  const phoneInputRegistration = document.querySelector('#registrationModal input[name="phone"]');
+
+if (phoneInputRegistration) {
+  phoneInputRegistration.addEventListener('input', function () {
+    let digits = phoneInputRegistration.value.replace(/\D/g, '').substring(0, 10);
+
+    let formatted = '';
+    if (digits.length > 0) {
+      formatted = digits.substring(0, 3);
+    }
+    if (digits.length >= 4) {
+      formatted += '-' + digits.substring(3, 6);
+    }
+    if (digits.length >= 7) {
+      formatted += '-' + digits.substring(6, 10);
+    }
+
+    phoneInputRegistration.value = formatted;
+  });
+}
+
+
+  emailjs.init({ publicKey: "aaUikvzeH71VgOREm" });
+
+  const submitBtnRegistration = document.getElementById('submitBtnRegistration');
+  const form = document.getElementById('registrationForm');
+
+  submitBtnRegistration.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const formData = new FormData(form);
+    const templateParams = {
+      currentlyEnrolled: formData.get('currentlyEnrolled'),
+      everParticipated: formData.get('everParticipated'),
+      fullName: formData.get('firstName') + ' ' + formData.get('lastName'),
+      email: formData.get('emailAddress'),
+      phone: formData.get('phone'),
+      address: formData.get('address'),
+      city: formData.get('city'),
+      state: formData.get('state'),
+      zipCode: formData.get('zipCode'),
+      sex: formData.get('sex'),
+      dob: formData.get('dob'),
+      bestTime: formData.get('bestTime'),
+      howHear: formData.get('howHear'),
+      studies: formData.get('studies'),
+      studyOther: formData.get('studyOther'),
+      conditions: formData.get('conditions')
+    };
+
+    emailjs.send('service_hwh44t5', 'template_wp4wlr6', templateParams)
+      .then(function () {
+        const thankYouEl = document.getElementById('thankYouMessageRegistration');
+        thankYouEl.textContent = "Thanks, we will get back to you soon.";
+        thankYouEl.style.display = "block";
+        setTimeout(() => {
+          thankYouEl.style.display = "none";
+          document.getElementById('registrationModal').style.display = "none";
+        }, 4000);
+      }, function (error) {
+        document.getElementById('thankYouMessage').textContent = "Sorry, something went wrong.";
+        document.getElementById('thankYouMessage').style.display = 'block';
+        console.error(error);
+      });
+  });
+});

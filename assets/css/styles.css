@@ -647,7 +647,7 @@ img{
   color: var(--text-color);
 }
 
-#thankYouMessage {
+#thankYouMessage, #thankYouMessageRegistration {
   margin-top: 1rem;
   font-weight: 600;
   color: #2596be;
@@ -678,4 +678,26 @@ img{
   textarea {
     resize: none;
   }
+}
+
+.radio-row {
+  gap: 2rem;
+  padding-top: 0.5rem;
+}
+
+.radio-row input {
+  width: 25px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+#registrationModal .button {
+  width: 100%;
+  max-width: 200px; 
+  display: block;
 }
